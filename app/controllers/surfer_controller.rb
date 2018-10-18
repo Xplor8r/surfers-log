@@ -1,0 +1,3 @@
+class SurferController < ApplicationController
+
+end
