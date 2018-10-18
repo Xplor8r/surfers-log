@@ -1,4 +1,4 @@
-module Slugify
+module Slugifiable
   module ClassMethods
     def slug
       self.surfername.downcase.gsub(" ", "-")
