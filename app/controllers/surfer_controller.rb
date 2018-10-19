@@ -1,5 +1,6 @@
+require 'rack-flash'
 class SurferController < ApplicationController
-  register Sinatra::Flash
+  use Rack::Flash
 
   enable :sessions
   require 'sinatra/flash'
