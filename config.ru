@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 
-use SurferController
-use LogController
+use SurfersController
+use LogEntriesController
 run ApplicationController

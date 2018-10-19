@@ -8,5 +8,4 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-require './app/models/concerns/slugifiable'
  require_all 'app'

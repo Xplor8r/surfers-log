@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_18_215945) do
+ActiveRecord::Schema.define(version: 2018_10_19_204157) do
 
-  create_table "logs", force: :cascade do |t|
+  create_table "log_entries", force: :cascade do |t|
     t.string "surf_spot"
     t.integer "date"
-    t.text "discription"
+    t.text "content"
     t.string "swell_direction"
     t.integer "swell_size"
     t.string "conditions"

@@ -1,8 +1,8 @@
 require './config/environment'
-
+require 'rack-flash'
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
-
+  use Rack::Flash
   enable :sessions
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
 
      def current_user
        User.find(session[:user_id])
+     end
+
+     def please_log_in
+       flash[:message] = "You must be logged in."
+       redirect to '/login'
      end
    end
 end

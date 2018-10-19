@@ -17,5 +17,10 @@
     </div>
   </nav>
 
-
 <h2>Your Log</h2>
+<h1><%= @surfer.surfername %> Entries</h1>
+
+  <% @surfer.log_entries.each do || %>
+
+  <% end %>
+<h2><a href='/logout'>Logout</a></h2>
