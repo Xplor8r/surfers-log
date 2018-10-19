@@ -1,4 +1,4 @@
-class CreateSurfers < ActiveRecord::Migration[5.2]
+class CreateSurfers < ActiveRecord::Migration
   def change
     create_table :surfers do |t|
       t.string :surfername
