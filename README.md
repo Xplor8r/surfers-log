@@ -1,6 +1,6 @@
 # Surfers::Log
 
-Surf, log, share, using a new app called Surfers Log. Recording your surf sessions allows you to relive those epic days and to dial in a specific spot with specific conditions.
+Surf, log, share, using a new app called Surfers Log. Recording your surf sessions allows you to relive those epic days and to dial in a specific spot with specific conditions. Sign up today and start logging!
 
 
 ## Installation
