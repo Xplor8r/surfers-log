@@ -1,9 +1,9 @@
-class CreateLogs < ActiveRecord::Migration
+class CreateLogs < ActiveRecord::Migration[5.2]
   def change
     create_table :logs do |t|
       t.string :surf_spot
       t.integer :date
-      t.text :log
+      t.text :discription
       t.string :swell_direction
       t.integer :swell_size
       t.string :conditions
