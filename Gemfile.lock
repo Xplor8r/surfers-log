@@ -7,18 +7,16 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (4.2.5)
-      activesupport (= 4.2.5)
-      builder (~> 3.1)
-    activerecord (4.2.5)
-      activemodel (= 4.2.5)
-      activesupport (= 4.2.5)
-      arel (~> 6.0)
-    activesupport (4.2.5)
-      i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
+   activemodel (5.2.0)
+      activesupport (= 5.2.0)
+    activerecord (5.2.0)
+      activemodel (= 5.2.0)
+      activesupport (= 5.2.0)
+      arel (>= 9.0)
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
@@ -116,7 +114,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 4.2.5)
+  activerecord
   bcrypt
   capybara
   database_cleaner!
