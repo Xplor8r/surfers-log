@@ -1,4 +1,4 @@
-class CreateLogs < ActiveRecord::Migration[5.2]
+class CreateLogs < ActiveRecord::Migration
   def change
     create_table :logs do |t|
       t.string :surf_spot
