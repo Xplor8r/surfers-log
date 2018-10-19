@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After a surfer logs in with surfername, email, and password the surfer may input into a log entry specific data about a surf session. The data includes the surfspot, date, and discription with optional info about swell direction, swell size, weather conditions, wave count and the option to upload a photo. The surfer can then view their log entries or view a list of log entries from the Surfers Log community. The surfer also has the ability to edit or delete their own log entries.
 
 ## Development
 
