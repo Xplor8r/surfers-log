@@ -1,3 +1,5 @@
-class LogController < ApplicationController
+require 'rack-flash'
 
+class LogController < ApplicationController
+  use Rack::Flash
 end
