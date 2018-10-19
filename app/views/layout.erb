@@ -16,12 +16,15 @@
   <body>
     <% if flash.has?(:message) %>
     <%= flash[:message] %>
-    <% end %>
-    <h1>Surfers Log</h1>
-    <div="container">
-
-      <%=yield %>
-    </div>
+    <% end %>  
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Surfers Log</h1>
+           <%=yield %>   
+        </div>
+      </div>
 
     <footer class="branding">
      <p><strong>SurfersLog</strong>&copy; 2018</p>
