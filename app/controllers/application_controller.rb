@@ -2,7 +2,7 @@ require './config/environment'
 require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
-
+  use Rack::Flash
 
   enable :sessions
   set :session_secret, "my_application_secret"
