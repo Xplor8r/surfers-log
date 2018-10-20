@@ -15,26 +15,27 @@
     <title>Surfers Log</title>
   </head>
   <body>
-    <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <figure>
-            <img src="/images/surfers_log.jpg" alt="Scenic coastal picture with wave">
-          </figure>
-          <h1>Surfers Log</h1>
-            <%=yield %>
-        </div>
-      </div>
+    <div class="wrapper">
+      <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+      <% end %>
 
-      <div class="row">
-        <div class="col-sm-12">
-          &copy; 2018 Surfers Log. All Rights Reserved.
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <figure>
+              <img src="/images/surfers_log.jpg" alt="Scenic coastal picture with wave">
+            </figure>
+            <h1>Surfers Log</h1>
+            <%=yield %>
+          </div>
         </div>
+
+        <footer>
+          &copy; 2018 Surfers Log. All Rights Reserved.
+        </footer>
       </div>
-    </div>
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
