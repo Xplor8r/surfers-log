@@ -3,12 +3,16 @@ img {
   max-width: 100%;
 }
 
+.active {
+  background-color: #5c98b2;
+}
+
 .row {
   margin-bottom: 20px
 }
 
 body {
-	background: #F3EBE9;
+	background: #7dbcc3;
 	font-size: 100%;
 	font-family: 'Times New Roman', serif;
 }
@@ -23,7 +27,8 @@ body {
 h1 {
 	padding-bottom: 10px;
 	font-size: 5em;
-	font-family: 'Baskerville', serif;
+  font-style: oblique;
+	font-family: 'Georgia Bold', serif;
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: 0;
@@ -61,3 +66,15 @@ footer {
   margin: 0;
 	padding: 0;
  }
+
+  @media only screen and (max-width: 992px) {
+    .wrapper {
+      width: 90%
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    h2 {
+      font-size: 1em;
+    }
+  }
