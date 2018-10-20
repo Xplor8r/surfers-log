@@ -7,6 +7,10 @@ img {
   background-color: #5c98b2;
 }
 
+.form-group label {
+  display: inline;
+}
+
 .row {
   margin-bottom: 20px
 }
@@ -36,13 +40,6 @@ h1 {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #cccc;
-}
-
-header a {
-  color: #99aea7;
-	text-decoration: none;
-	margin: 0;
-	padding: 0;
 }
 
 h2 {
@@ -76,5 +73,8 @@ footer {
     }
     h2 {
       font-size: 1em;
+    }
+    .form-group label {
+      display: none;
     }
   }
