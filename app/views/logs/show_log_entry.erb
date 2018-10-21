@@ -44,7 +44,9 @@ By: <%= @log_entry.surfer.surfername %></p>
   <img src="/images/malibu.jpg" alt="surfing, waves">
 <% end %>
 <p><%= @log_entry.content %></p>
+<% if current_user.surfername == @log_entry.surfer.surfername %>
   <form method="get" action="/logs/<%= @log_entry.id %>/edit">
     <button type="submit" class="btn btn-primary">Edit</button>
   </form>
+<% end %>
 </div>
