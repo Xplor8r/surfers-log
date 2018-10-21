@@ -20,7 +20,8 @@
   </div>
 </nav>
 <h2>Edit Log Entry</h2>
-<form action="/log_entries" method="POST">
+<form action="/logs/<%= @log_entry.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="surf_spot">Surf Spot</label>

@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/show">Your Log<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/log_entries">All Log Entries</a>
@@ -23,26 +23,27 @@
 <h2><%= @surfer.surfername %> Log Entries</h2>
 
 <% @surfer.log_entries.each do |log_entry| %>
-  <div class="form-group">
+  <div>
     <h3><%= log_entry.surf_spot %></h3>
-      <p>Date: <%= log_entry.date %> By: <%= log_entry.surfer.surfername %></p>
-    </div>
+    <p>Date: <%= log_entry.date %><br>
+    By: <%= log_entry.surfer.surfername %></p>
 
-    <% if log_entry.swell_direction %>
-      <p>Swell Direction: <%= log_entry.swell_direction %></p>
-    <% end %>
-    <% if log_entry.swell_size %>
-      <p><%= log_entry.swell_size %></p>
-    <% end %>
-    <% if log_entry.conditions %>
-      <p>Condtions: <%= log_entry.conditions %></p>
-    <% end %>
-    <% if log_entry.wave_count %>
-      <p>Wave Count: <%= log_entry.wave_count %></p>
+    <p><% if log_entry.swell_size != "" %>
+      Swell: <%= log_entry.swell_size %>
+        <% if log_entry.swell_direction != "" %>
+          <%= log_entry.swell_direction %>
+        <% end %><br>
     <% end %>
 
-    <% if log_entry.image_url %>
-      <img href="<%= log_entry.image_url %>" alt="surfing, waves">
+    <% if log_entry.conditions != "" %>
+      Condtions: <%= log_entry.conditions %><br>
+    <% end %>
+    <% if log_entry.wave_count != "" %>
+      Wave Count: <%= log_entry.wave_count %></p>
+    <% end %>
+
+    <% if log_entry.image_url != "" %>
+      <img src="<%= log_entry.image_url %>" alt="surfing, waves">
     <% end %>
     <p><%= log_entry.content %></p>
   <form action='/logs/<%= log_entry.id %>/edit' method="GET">
