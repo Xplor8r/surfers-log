@@ -5,7 +5,7 @@ class LogEntriesController < ApplicationController
 
   get '/log_entries' do
     if logged_in?
-      @log_entries = LogEntry.all.sort_by { |log_entry| log_entry.date }.reverse
+      @log_entries = LogEntry.all.reverse
       erb :'/logs/log_entries'
     else
       please_log_in
@@ -40,14 +40,8 @@ class LogEntriesController < ApplicationController
 
   post '/log_entries' do
     if logged_in? && params['surf_spot'] != "" && params['date'] != ""  && params['content'] != ""
-      @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'])
+      @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
-        @log_entry.swell_direction == params['swell_direction']
-        @log_entry.swell_size == params['swell_size']
-        @log_entry.conditions == params['conditions']
-        @log_entry.swell_size == params['swell_size']
-        @log_entry.wave_count == params['wave_count']
-        @log_entry.image_url == params['image_url']
         @log_entry.save
         redirect to "/logs/#{@log_entry.id}"
       else
@@ -63,14 +57,8 @@ class LogEntriesController < ApplicationController
   patch '/logs/:id' do
     @log_entry = LogEntry.find_by_id(params[:id])
     if logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
-      @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'])
+      @log_entry = current_user.log_entries.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
-        @log_entry.swell_direction == params['swell_direction']
-        @log_entry.swell_size == params['swell_size']
-        @log_entry.conditions == params['conditions']
-        @log_entry.swell_size == params['swell_size']
-        @log_entry.wave_count == params['wave_count']
-        @log_entry.image_url == params['image_url']
         @log_entry.save
         redirect to "/logs/#{@log_entry.id}"
       else

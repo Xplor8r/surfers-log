@@ -26,22 +26,22 @@
 <p>Date: <%= @log_entry.date %><br>
 By: <%= @log_entry.surfer.surfername %></p>
 
-<p><% if log_entry.swell_size != "" %>
-  Swell: <%= log_entry.swell_size %>
-    <% if log_entry.swell_direction != "" %>
-      <%= log_entry.swell_direction %>
+<p><% if @log_entry.swell_size != "" %>
+  Swell: <%= @log_entry.swell_size %>
+    <% if @log_entry.swell_direction != "" %>
+      <%= @log_entry.swell_direction %>
     <% end %><br>
 <% end %>
 
-<% if log_entry.conditions != "" %>
-  Condtions: <%= log_entry.conditions %><br>
+<% if @log_entry.conditions != "" %>
+  Condtions: <%= @log_entry.conditions %><br>
 <% end %>
-<% if log_entry.wave_count != "" %>
-  Wave Count: <%= log_entry.wave_count %></p>
+<% if @log_entry.wave_count != "" %>
+  Wave Count: <%= @log_entry.wave_count %></p>
 <% end %>
 
 <% if @log_entry.image_url %>
-  <img src="<%= @log_entry.image_url %>" alt="surfing, waves">
+  <img src="/images/malibu.jpg" alt="surfing, waves">
 <% end %>
 <p><%= @log_entry.content %></p>
   <form method="get" action="/logs/<%= @log_entry.id %>/edit">

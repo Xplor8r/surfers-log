@@ -22,8 +22,8 @@
 
 <h2><%= @surfer.surfername %> Log Entries</h2>
 
-<% @surfer.log_entries.each do |log_entry| %>
-  <div>
+<% @surfer.log_entries.reverse.each do |log_entry| %>
+
     <h3><%= log_entry.surf_spot %></h3>
     <p>Date: <%= log_entry.date %><br>
     By: <%= log_entry.surfer.surfername %></p>
@@ -49,6 +49,6 @@
   <form action='/logs/<%= log_entry.id %>/edit' method="GET">
     <button type="submit" class="btn btn-primary">Edit</button>
   </form>
-</div>
+
 
 <% end %>
