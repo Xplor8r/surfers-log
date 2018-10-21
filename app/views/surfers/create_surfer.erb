@@ -2,17 +2,23 @@
 
 <form action="/signup" method="POST">
   <div class="form-group">
-    <label for="surfername">Surfer Name</label>
-    <input type="text" class="form-control" id="surfername" name="surfername" placeholder="Enter Surfer Name">
+    <div class="form-group col-md-6">
+      <label for="surfername">Surfer Name</label>
+      <input type="text" class="form-control" id="surfername" name="surfername" placeholder="Enter Surfer Name">
+    </div>
   </div>
   <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <div class="form-group col-md-6">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else!</small>
   </div>
+  </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    <div class="form-group col-md-6">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
