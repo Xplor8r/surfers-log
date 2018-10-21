@@ -21,3 +21,30 @@
   </nav>
 
 <h2><%= @surfer.surfername %> Log Entries</h2>
+
+<% @surfer.log_entries.each do |log_entry| %>
+  <div>
+    <h3><%= log_entry.surf_spot %></h3>
+    <p>Date: <%= log_entry.date %><br>
+    By: <%= log_entry.surfer.surfername %></p>
+
+    <% if log_entry.swell_direction %>
+      <p>Swell: <%= log_entry.swell_direction %>
+        <% if log_entry.swell_size %>
+          <%= log_entry.swell_size %>
+        <% end %></p>
+    <% end %>
+
+    <% if log_entry.conditions %>
+      <p>Condtions: <%= log_entry.conditions %></p>
+    <% end %>
+    <% if log_entry.wave_count %>
+      <p>Wave Count: <%= log_entry.wave_count %></p>
+    <% end %>
+
+    <% if log_entry.image_url %>
+      <img href="<%= log_entry.image_url %>" alt="surfing, waves">
+    <% end %>
+    <p><%= log_entry.content %></p>
+  </div>
+<% end %>
