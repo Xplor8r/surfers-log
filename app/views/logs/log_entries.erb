@@ -1,21 +1,49 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/log_entries">All Log Entries<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/new">Create Log Entry</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href='/logout'>Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/log_entries">All Log Entries<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/new">Create Log Entry</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='/logout'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h2>Welcome, <%= current_user.surfername %></h2>
+
+  <% @logs.each do |log| %>
+    <div>
+      <p>Date: <%= log.date %></p>
+      <p>By: <%= log.surfer_id %></p>
+
+      <% if log.swell_direction %>
+        <p>Swell: <%= log.swell_direction %>
+          <% if log.swell_size %>
+            <%= log.swell_size %>
+          <% end %></p>
+      <% end %>
+
+      <% if log.conditions %>
+        <p>Condtions: <%= log.conditions %></p>
+      <% end %>
+      <% if log.wave_count %>
+        <p>Wave Count: <%= log.wave_count %></p>
+      <% end %>
+
+      <% if log.image_url %>
+        <img href="<%= log.image_url %>" alt="surfing, waves">
+      <% end %>
+      <p><%= log.content %></p>
+    </div>
+  <% end %>
