@@ -19,3 +19,45 @@
     </ul>
   </div>
 </nav>
+<h2> New Log Entry</h2>
+<form action="/log_entries" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="surf_spot">Surf Spot</label>
+      <input type="text" class="form-control" id="surf_spot" name="surf_spot" placeholder="Surf Spot Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="date">Date of Surf Session</label>
+      <input type="text" class="form-control" id="date" name="date" placeholder="Date">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="swell_direction">Swell Direction</label>
+      <input type="text" class="form-control" id="swell_direction" name="swell_direction" placeholder="Swell Direction (optional)">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="swell_size">Swell Size</label>
+      <input type="text" class="form-control" id="swell_size" name="swell_size" placeholder="Swell Size (optional)">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="conditions">Weather Conditions</label>
+      <input type="text" class="form-control" id="swell_direction" name="conditions" placeholder="Weather Conditions (optional)">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="wave_count">Wave Count</label>
+      <input type="text" class="form-control" id="swell_size" name="wave_count" placeholder="Your Wave Count (optional)">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image_url">Upload Image</label>
+    <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Image url (optional)">
+  </div>
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea class="form-control" id="content" name="content" rows="3" maxlength="1000" placeholder="Log Entry Content"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
