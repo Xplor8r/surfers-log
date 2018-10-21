@@ -21,34 +21,40 @@
   </nav>
 
 <h2><%= @surfer.surfername %>, Here Are Your Log Entries:</h2>
+  <% if @surfer.log_entries == [] %>
+    <p>You Have no Log Entries. Please Create a Log Entry and Start Loggin'!</p>
+  <% else %>
+    <% @surfer.log_entries.reverse.each do |log_entry| %>
+      <div>
+          <h3><%= log_entry.surf_spot %></h3>
+        <p>Date: <%= log_entry.date %><br>
+        By: <%= log_entry.surfer.surfername %></p>
 
-<% @surfer.log_entries.reverse.each do |log_entry| %>
-
-    <h3><%= log_entry.surf_spot %></h3>
-    <p>Date: <%= log_entry.date %><br>
-    By: <%= log_entry.surfer.surfername %></p>
-
-    <p><% if log_entry.swell_size != "" %>
-      Swell: <%= log_entry.swell_size %>
+        <p><% if log_entry.swell_size != "" %>
+          Swell Size: <%= log_entry.swell_size %><br>
+        <% end %>
         <% if log_entry.swell_direction != "" %>
-          <%= log_entry.swell_direction %>
-        <% end %><br>
-    <% end %>
+          Swell Direction: <%= log_entry.swell_direction %><br>
+        <% end %>
+        <% if log_entry.conditions != "" %>
+          Condtions: <%= log_entry.conditions %><br>
+        <% end %>
+        <% if log_entry.wave_count != "" %>
+          Wave Count: <%= log_entry.wave_count %></p>
+        <% end %>
 
-    <% if log_entry.conditions != "" %>
-      Condtions: <%= log_entry.conditions %><br>
-    <% end %>
-    <% if log_entry.wave_count != "" %>
-      Wave Count: <%= log_entry.wave_count %></p>
-    <% end %>
+        <% if log_entry.image_url != "" %>
+          <img src="<%= log_entry.image_url %>" alt="surfing, waves">
+        <% end %>
+        <p id="content"><%= log_entry.content %></p>
 
-    <% if log_entry.image_url != "" %>
-      <img src="<%= log_entry.image_url %>" alt="surfing, waves">
+        <form method="get" action="/logs/<%= log_entry.id %>/edit">
+          <button type="submit" id="inline-button" class="btn btn-primary">Edit</button>
+        </form>
+        <form method="post" action="/logs/<%= log_entry.id %>/delete">
+          <input type="hidden" name="_method" value="DELETE" id="hidden">
+          <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
+        </form>
+      </div>
     <% end %>
-    <p id="content"><%= log_entry.content %></p>
-  <form action='/logs/<%= log_entry.id %>/edit' method="GET">
-    <button type="submit" class="btn btn-primary">Edit</button>
-  </form>
-
-
-<% end %>
+  <% end %>

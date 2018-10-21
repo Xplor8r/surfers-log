@@ -65,11 +65,18 @@ p  {
   hyphens: auto;
 }
 
+#inline-button {
+  display: inline;
+  float: left;
+  margin-left: 3px;
+}
+
 .nav-link {
   border-right-width:  2px;
   border-right-style: solid;
   border-right-color: #cccc;
 }
+
 footer {
   color: #7a6f69;
   text-align: right;
