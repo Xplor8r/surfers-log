@@ -26,9 +26,11 @@ class LogEntriesController < ApplicationController
       if @log_entry
         if params['swell_direction'] != ""
           @log_entry.swell_direction == params['swell_direction']
-        elsif params['swell_size'] != ""
+        end
+        if params['swell_size'] != ""
           @log_entry.swell_size == params['swell_size']
-        elsif params['conditions'] != ""
+        end
+        if params['conditions'] != ""
           @log_entry.conditions == params['conditions']
         elsif params['swell_size'] != ""
           @log_entry.swell_size == params['swell_size']
@@ -59,8 +61,8 @@ class LogEntriesController < ApplicationController
   end
 
   get '/logs/:id/edit' do
-    @log = LogEntry.find_by_id(params[:id])
-    if logged_in? && current_user.logs.include?(@log)
+    @log_entry = LogEntry.find_by_id(params[:id])
+    if logged_in? && current_user.log_entries.include?(@log_entry)
       erb :'/logs/edit_log_entry'
     else
       please_log_in

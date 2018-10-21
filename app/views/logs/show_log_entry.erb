@@ -19,30 +19,18 @@
     </ul>
   </div>
 </nav>
-<div class="form-group">
+
 <h2 class="@log_entry">Log Entry:</h2>
 <h3><%= @log_entry.surf_spot %><h3>
+  <div class="form-group">
   <p>Date: <%= @log_entry.date %></p>
   <p>By: <%= @log_entry.surfer.surfername %></p>
-
-  <% if @log_entry.swell_direction %>
     <p>Swell: <%= @log_entry.swell_direction %>
-      <% if @log_entry.swell_size %>
-        <%= @log_entry.swell_size %>
-      <% end %></p>
-  <% end %>
-
-  <% if @log_entry.conditions %>
+      <%= @log_entry.swell_size %></p>
     <p>Condtions: <%= @log_entry.conditions %></p>
-  <% end %>
-  <% if @log_entry.wave_count %>
     <p>Wave Count: <%= @log_entry.wave_count %></p>
-  <% end %>
-
-  <% if @log_entry.image_url %>
-    <img href="<%= @log_entry.image_url %>" alt="surfing, waves">
-  <% end %>
-  <p><%= @log_entry.content %></p>
+    <img src='<%= @log_entry.image_url %>' alt="surfing, waves">
+    <p><%= @log_entry.content %></p>
 
   <form method="get" action="/logs/<%= @log_entry.id %>/edit">
     <button type="submit" class="btn btn-primary">Edit</button>
