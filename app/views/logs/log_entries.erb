@@ -25,21 +25,22 @@
   <% @log_entries.each do |log_entry| %>
     <div>
       <h3><%= log_entry.surf_spot %></h3>
-      <p>Date: <%= log_entry.date %><br>
+      <p><b>Date:</b> <%= log_entry.date %><br>
       By: <%= log_entry.surfer.surfername %></p>
 
       <p><% if log_entry.swell_size != "" %>
-        Swell Size: <%= log_entry.swell_size %>
-          <% if log_entry.swell_direction != "" %>
-             Swell Direction: <%= log_entry.swell_direction %>
-          <% end %><br>
+        <b>Swell Size:</b> <%= log_entry.swell_size %><br>
       <% end %>
+      <% if log_entry.swell_direction != "" %>
+        <b>Swell Direction:</b> <%= log_entry.swell_direction %>
+      <% end %><br>
+
 
       <% if log_entry.conditions != "" %>
-        Condtions: <%= log_entry.conditions %><br>
+        <b>Condtions:</b> <%= log_entry.conditions %><br>
       <% end %>
       <% if log_entry.wave_count != "" %>
-        Wave Count: <%= log_entry.wave_count %></p>
+        <b>Wave Count:</b> <%= log_entry.wave_count %></p>
       <% end %>
 
       <% if log_entry.image_url != "" %>

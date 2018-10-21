@@ -45,7 +45,7 @@ class LogEntriesController < ApplicationController
     if !logged_in?
       please_log_in
     elsif logged_in? && params['surf_spot'] != "" && params['date'] != ""  && params['content'] != ""
-      @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
+      @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
         @log_entry.save
         redirect to "/logs/#{@log_entry.id}"
@@ -62,7 +62,7 @@ class LogEntriesController < ApplicationController
     if !logged_in?
       please_log_in
     elsif logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
-      @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
+      @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       redirect to "/logs/#{@log_entry.id}"
     else
       flash[:message] = "Error: Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
