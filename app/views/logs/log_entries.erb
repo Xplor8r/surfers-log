@@ -20,7 +20,7 @@
   </div>
 </nav>
 <div>
-<h2>Welcome, <%= current_user.surfername %></h2>
+<h2>Welcome to the Surfer's Log Community, <%= current_user.surfername %>!</h2>
 
   <% @log_entries.each do |log_entry| %>
     <div>
@@ -45,7 +45,7 @@
       <% if log_entry.image_url != "" %>
         <img src="<%= log_entry.image_url %>" alt="surfing, waves">
       <% end %>
-      <p><%= log_entry.content %></p>
+      <p id="content"><%= log_entry.content %></p>
     </div>
   <% end %>
 </div>

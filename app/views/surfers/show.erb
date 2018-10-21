@@ -20,7 +20,7 @@
     </div>
   </nav>
 
-<h2><%= @surfer.surfername %> Log Entries</h2>
+<h2><%= @surfer.surfername %>, Here Are Your Log Entries:</h2>
 
 <% @surfer.log_entries.reverse.each do |log_entry| %>
 
@@ -45,7 +45,7 @@
     <% if log_entry.image_url != "" %>
       <img src="<%= log_entry.image_url %>" alt="surfing, waves">
     <% end %>
-    <p><%= log_entry.content %></p>
+    <p id="content"><%= log_entry.content %></p>
   <form action='/logs/<%= log_entry.id %>/edit' method="GET">
     <button type="submit" class="btn btn-primary">Edit</button>
   </form>

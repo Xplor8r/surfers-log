@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
      end
 
      def please_log_in
-       flash[:message] = "You must be logged in."
+       flash[:message] = "Error: You must be logged in."
        redirect to '/login'
      end
    end

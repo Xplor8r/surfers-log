@@ -1,4 +1,6 @@
 img {
+  padding-top:  30px;
+  margin: auto;
   width: 100%;
   max-width: 100%;
 }
@@ -23,9 +25,9 @@ body {
 
 .wrapper {
 	width: 960px;
-	margin: 0 auto;
+	margin: 10px auto;
 	background: #fff;
-	padding: 0 45px 20px;
+	padding: 0 30px 20px;
 }
 
 h1 {
@@ -33,11 +35,8 @@ h1 {
 	font-size: 5em;
   font-style: oblique;
 	font-family: 'Georgia Bold', serif;
-	margin-top: 0;
-	margin-left: 0;
-	margin-right: 0;
-	margin-bottom: 5px;
-	border-bottom-width: 1px;
+	margin-top: 0 5px 0 0;
+	border-bottom-width: 3px;
 	border-bottom-style: solid;
 	border-bottom-color: #cccc;
 }
@@ -61,8 +60,16 @@ p  {
 	font-size: 1em;
 	margin-top: 20px;
 	padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
+.nav-link {
+  border-right-width:  2px;
+  border-right-style: solid;
+  border-right-color: #cccc;
+}
 footer {
   color: #7a6f69;
   text-align: right;

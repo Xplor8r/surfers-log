@@ -39,35 +39,45 @@ class LogEntriesController < ApplicationController
   end
 
   post '/log_entries' do
-    if logged_in? && params['surf_spot'] != "" && params['date'] != ""  && params['content'] != ""
+    if !logged_in?
+      please_log_in
+    elsif logged_in? && params['surf_spot'] != "" && params['date'] != ""  && params['content'] != ""
       @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
         @log_entry.save
         redirect to "/logs/#{@log_entry.id}"
-      else
-        flash[:message] = "Please enter Surf Spot Name, Date of Session, and Log Entry Content."
-        redirect to '/logs/new_log_entry'
       end
     else
-      please_log_in
+      flash[:message] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
+      redirect to '/new'
     end
     current_user.save
   end
 
   patch '/logs/:id' do
     @log_entry = LogEntry.find_by_id(params[:id])
-    if logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
+    if !logged_in?
+      please_log_in
+    elsif logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
       @log_entry = current_user.log_entries.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], swell_size: params['swell_size'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
         @log_entry.save
         redirect to "/logs/#{@log_entry.id}"
-      else
-        flash[:message] = "Please enter Surf Spot Name, Date of Session, and Log Entry Content."
-        redirect to '/logs/new_log_entry'
       end
+    else
+      flash[:message] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
+      redirect to '/logs/new_log_entry'
+    end
+    current_user.save
+  end
+
+  delete '/logs/:id/delete' do
+    @log_entry = LogEntry.find_by_id(params[:id])
+    if logged_in? && @log_entry.surfer == current_user
+      @log_entry.delete
     else
       please_log_in
     end
-    current_user.save
+    redirect to '/log_entries'
   end
 end
