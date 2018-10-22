@@ -16,6 +16,7 @@ img {
 }
 
 .break {
+  padding-bottom: 10px;
   border-bottom-width: 3px;
   border-bottom-style: solid;
   border-bottom-color: #818e8e;
