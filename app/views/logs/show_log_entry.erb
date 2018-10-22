@@ -24,7 +24,11 @@
   <h3><%= @log_entry.surf_spot %></h3>
     <p><b>Date:</b> <%= @log_entry.date %><br>
       <b>By:</b> <%= @log_entry.surfer.surfername %></p>
-
+  <% if current_user.surfername != @log_entry.surfer.surfername %>
+    <form method="get" action="/logs/<%= @log_entry.surfer.slug %>/all">
+      <button type="submit" id="inline-button" class="btn btn-primary">View All Log Entries by <%= @log_entry.surfer.surfername %></button>
+    </form><br>
+  <% end %>
     <p><% if @log_entry.swell_size != "" %>
       <b>Swell Size:</b> <%= @log_entry.swell_size %></br>
     <% end %>
@@ -40,7 +44,7 @@
       <b>Wave Count:</b> <%= @log_entry.wave_count %></p>
     <% end %>
 
-    <% if @log_entry.image_url %>
+    <% if @log_entry.image_url != "" %>
       <img src="<%= @log_entry.image_url %>" alt="surfing, waves">
     <% end %>
     <p id="content"><%= @log_entry.content %></p>

@@ -49,6 +49,11 @@ class SurfersController < ApplicationController
     erb :'/surfers/show'
   end
 
+    get '/logs/:slug/all' do
+      @surfer = Surfer.find_by_slug(params[:slug])
+      erb :'/surfers/show'
+    end
+
   get "/logout" do
     if logged_in?
       session.clear
