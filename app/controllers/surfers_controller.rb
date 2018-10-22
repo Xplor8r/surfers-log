@@ -20,6 +20,10 @@ class SurfersController < ApplicationController
   end
 
   post '/signup' do
+    if Surfer.exists?(surfername: params[:surfername], email: params[:email])
+      flash[:error] = "That Surfer already exists. Please log in."
+      redirect to '/login'
+    end
     @surfer = Surfer.new(surfername: params[:surfername], email: params[:email], password: params[:password])
     if params[:surfername] != "" && params[:password] != "" && params[:email] != ""
       @surfer.save
