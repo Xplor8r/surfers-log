@@ -27,9 +27,11 @@
       <h3><%= log_entry.surf_spot %></h3>
       <p><b>Date:</b> <%= log_entry.date %><br>
       <b>By:</b> <%= log_entry.surfer.surfername %></p>
-      <form method="get" action="/logs/<%= log_entry.id %>">
-        <button type="submit" id="inline-button" class="btn btn-primary">View</button>
-      </form><br>
+      <div class="form-group">
+        <form method="get" action="/logs/<%= log_entry.id %>">
+          <button type="submit" id="inline-button" class="btn btn-primary">View</button>
+        </form><br>
+      </div>
 
       <p><% if log_entry.swell_size != "" %>
         <b>Swell Size:</b> <%= log_entry.swell_size %><br>

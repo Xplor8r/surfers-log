@@ -26,19 +26,21 @@
     <p><b>Date:</b> <%= @log_entry.date %><br>
     <b>By:</b> <%= @log_entry.surfer.surfername %></p>
 
-    <% if current_user.surfername != @log_entry.surfer.surfername %>
-      <form method="get" action="/logs/<%= @log_entry.surfer.slug %>/all">
-        <button type="submit" id="inline-button" class="btn btn-primary">View All Log Entries by <%= @log_entry.surfer.surfername %></button>
-      </form><br>
-    <% else %>
-      <form method="get" action="/logs/<%= @log_entry.id %>/edit">
-        <button id="inline-button" type="submit" class="btn btn-primary">Edit</button>
-      </form>
-      <form method="post" action="/logs/<%= @log_entry.id %>/delete">
-        <input type="hidden" name="_method" value="DELETE" id="hidden">
-        <button id="inline-button" type="submit" class="btn btn-primary">Delete</button>
-      </form><br>
-    <% end %>
+    <div class="form-group">
+      <% if current_user.surfername != @log_entry.surfer.surfername %>
+        <form method="get" action="/logs/<%= @log_entry.surfer.slug %>/all">
+          <button type="submit" id="inline-button" class="btn btn-primary">View All Log Entries by <%= @log_entry.surfer.surfername %></button>
+        </form><br>
+      <% else %>
+        <form method="get" action="/logs/<%= @log_entry.id %>/edit">
+          <button id="inline-button" type="submit" class="btn btn-primary">Edit</button>
+        </form>
+        <form method="post" action="/logs/<%= @log_entry.id %>/delete">
+          <input type="hidden" name="_method" value="DELETE" id="hidden">
+          <button id="inline-button" type="submit" class="btn btn-primary">Delete</button>
+        </form><br>
+      <% end %>
+    </div>
 
     <p><% if @log_entry.swell_size != "" %>
       <b>Swell Size:</b> <%= @log_entry.swell_size %></br>

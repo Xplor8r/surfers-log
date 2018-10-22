@@ -126,10 +126,8 @@ footer {
     }
 
     p {
-      font-size: .75em;
-      display: inline;
+      font-size: 1em;
     }
-
     .form-group label {
       display: none;
     }

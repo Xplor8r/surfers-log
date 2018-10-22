@@ -33,19 +33,21 @@
     <% @surfer.log_entries.reverse.each do |log_entry| %>
       <div  class="break">
         <h3><%= log_entry.surf_spot %></h3>
-        <% if current_user.surfername == @surfer.surfername %>
-          <form method="get" action="/logs/<%= log_entry.id %>/edit">
-            <button type="submit" id="inline-button" class="btn btn-primary">Edit</button>
-          </form>
-          <form method="post" action="/logs/<%= log_entry.id %>/delete">
-            <input type="hidden" name="_method" value="DELETE" id="hidden">
-          <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
-          </form><br>
-        <% else %>
-          <form method="get" action="/logs/<%= log_entry.id %>">
-            <button type="submit" id="inline-button" class="btn btn-primary">View</button>
-          </form><br>
-        <% end %>
+        <div class="form-group">
+          <% if current_user.surfername == @surfer.surfername %>
+            <form method="get" action="/logs/<%= log_entry.id %>/edit">
+              <button type="submit" id="inline-button" class="btn btn-primary">Edit</button>
+            </form>
+            <form method="post" action="/logs/<%= log_entry.id %>/delete">
+              <input type="hidden" name="_method" value="DELETE" id="hidden">
+            <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
+            </form><br>
+          <% else %>
+            <form method="get" action="/logs/<%= log_entry.id %>">
+              <button type="submit" id="inline-button" class="btn btn-primary">View</button>
+            </form><br>
+          <% end %>
+        </div>
 
         <p><b>Date:</b> <%= log_entry.date %></br>
           <% if log_entry.swell_size != "" %>
