@@ -41,10 +41,14 @@
               <input type="hidden" name="_method" value="DELETE" id="hidden">
             <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
             </form><br>
+          <% else %>
+            <form method="get" action="/logs/<%= log_entry.id %>">
+              <button type="submit" id="inline-button" class="btn btn-primary">View</button>
+            </form><br>
           <% end %>
         <p><b>Date:</b> <%= log_entry.date %></p>
-        <% if log_entry.swell_size != "" %>
-          <p><b>Swell Size:</b> <%= log_entry.swell_size %><br>
+          <p><% if log_entry.swell_size != "" %>
+          <b>Swell Size:</b> <%= log_entry.swell_size %><br>
         <% end %>
         <% if log_entry.swell_direction != "" %>
           <b>Swell Direction:</b> <%= log_entry.swell_direction %><br>
@@ -53,8 +57,8 @@
           <b>Conditions:</b> <%= log_entry.conditions %><br>
         <% end %>
         <% if log_entry.wave_count != "" %>
-          <b>Wave Count:</b> <%= log_entry.wave_count %></p>
-        <% end %>
+          <b>Wave Count:</b> <%= log_entry.wave_count %>
+        <% end %></p>
 
         <% if log_entry.image_url != "" %>
           <img src="<%= log_entry.image_url %>" alt="surfing, waves"><br>
