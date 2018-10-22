@@ -42,15 +42,15 @@
             <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
             </form><br>
           <% end %>
-        <p><b>Date:</b> <%= log_entry.date %><br>
+        <p><b>Date:</b> <%= log_entry.date %></p>
         <% if log_entry.swell_size != "" %>
-          <b>Swell Size:</b> <%= log_entry.swell_size %><br>
+          <p><b>Swell Size:</b> <%= log_entry.swell_size %><br>
         <% end %>
         <% if log_entry.swell_direction != "" %>
           <b>Swell Direction:</b> <%= log_entry.swell_direction %><br>
         <% end %>
         <% if log_entry.conditions != "" %>
-          <b>Condtions:</b> <%= log_entry.conditions %><br>
+          <b>Conditions:</b> <%= log_entry.conditions %><br>
         <% end %>
         <% if log_entry.wave_count != "" %>
           <b>Wave Count:</b> <%= log_entry.wave_count %></p>

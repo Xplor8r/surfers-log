@@ -10,6 +10,7 @@ Surfer.create(surfername: "Nat Young", email: "nat@young.org", password: "12345"
 Surfer.create(surfername: "Bethany Hamilton", email: "bethh@soulsurfer.com", password: "12345")
 Surfer.create(surfername: "Jerricho Poppler", email: "jerrypop@jerrypop.com", password: "12345")
 Surfer.create(surfername: "Lance Burkhart", email: "shady@surfer.com", password: "12345")
+Surfer.create(surfername: "Michael Pieschel", email: "mike@surferslog.com", password: "12345")
 
 LogEntry.create(surf_spot: "Malibu", swell_size: "5ft", swell_direction: "SW", conditions: "Side shore wind", wave_count: "100", content: "I'm the king of malibu! no hodad can top this hotdogger! I surfed every single wave in the curl all day!", image_url: "/images/malibu2.jpg", date: "summer 1960", surfer_id: 1)
 LogEntry.create(surf_spot: "Bells Beach", swell_size: "", swell_direction: "", conditions: "", wave_count: "", content: "Crikey, what a blast! I got so tubed! You wouldn't believe it, mate!", image_url: "/images/bellsbeach.jpg", date: "6/3/2011", surfer_id: 2)
@@ -25,3 +26,4 @@ LogEntry.create(surf_spot: "Bells Beach", swell_size: "", swell_direction: "", c
 LogEntry.create(surf_spot: "Teahupoo", swell_size: "SSSOOOOO BBBIIIIGGGG!!!", swell_direction: "SSW and S mix", conditions: "GREAT!", wave_count: "", content: "After locking in Teahupoo like I did today the world will know I can hold my own in the world of Surfing!", image_url: "/images/teahupoo.jpg", date: "", surfer_id: 10)
 LogEntry.create(surf_spot: "Trestles", swell_size: "Chest high", swell_direction: "", conditions: "kinda frothy but lots of sun", wave_count: "21", content: "Wow! Do I look great! I love that bathing suit! I was on the nose and carving the curl all day!", image_url: "/images/jerricho.jpg", date: "June 1979", surfer_id: 11)
 LogEntry.create(surf_spot: "Malibu", swell_size: "", swell_direction: "", conditions: "", wave_count: "", content: "For all who were out surfing, I have a message. Don't Snake Me!", image_url: "/images/malibu.jpg", date: "1959", surfer_id: 12)
+LogEntry.create(surf_spot: "Morro Bay 'The Rock'", swell_size: "4-6ft", swell_direction: "NW", conditions: "Hard off shore", wave_count: "infinity", content: "SSSSSSSSSSUUUUUUUUUUUUUUURRRRRRRRFFFFFF!!!! I love surfing!", image_url: "/images/mikesurf3.jpg", date: "December, 21st 2012", surfer_id: 13)
