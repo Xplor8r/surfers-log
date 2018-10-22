@@ -2,54 +2,55 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if current_user.id == @surfer.id %>
-          <li class="nav-item active">
-            <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <a class="nav-link" href="/log_entries">All Log Entries</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user.id == @surfer.id %>
+        <li class="nav-item active">
+          <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
         </li>
+      <% else %>
         <li class="nav-item">
-          <a class="nav-link" href="/new">Create Log Entry</a>
+          <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href='/logout'>Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-<h2 class="break"><%= @surfer.surfername %> Log Entries:</h2>
+      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="/log_entries">All Log Entries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/new">Create Log Entry</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='/logout'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div>
+  <h2 class="break"><%= @surfer.surfername %> Log Entries:</h2>
   <% if @surfer.log_entries == [] %>
     <p>You Have no Log Entries. Please Create a Log Entry and Start Loggin'!</p>
   <% else %>
     <% @surfer.log_entries.reverse.each do |log_entry| %>
-      <div>
-          <h3><%= log_entry.surf_spot %></h3>
-          <% if current_user.surfername == @surfer.surfername %>
-            <form method="get" action="/logs/<%= log_entry.id %>/edit">
-              <button type="submit" id="inline-button" class="btn btn-primary">Edit</button>
-            </form>
-            <form method="post" action="/logs/<%= log_entry.id %>/delete">
-              <input type="hidden" name="_method" value="DELETE" id="hidden">
-            <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
-            </form><br>
-          <% else %>
-            <form method="get" action="/logs/<%= log_entry.id %>">
-              <button type="submit" id="inline-button" class="btn btn-primary">View</button>
-            </form><br>
-          <% end %>
-        <p><b>Date:</b> <%= log_entry.date %></p>
-          <p><% if log_entry.swell_size != "" %>
-          <b>Swell Size:</b> <%= log_entry.swell_size %><br>
+      <div  class="break">
+        <h3><%= log_entry.surf_spot %></h3>
+        <% if current_user.surfername == @surfer.surfername %>
+          <form method="get" action="/logs/<%= log_entry.id %>/edit">
+            <button type="submit" id="inline-button" class="btn btn-primary">Edit</button>
+          </form>
+          <form method="post" action="/logs/<%= log_entry.id %>/delete">
+            <input type="hidden" name="_method" value="DELETE" id="hidden">
+          <button type="submit" id="inline-button" class="btn btn-primary">Delete</button>
+          </form><br>
+        <% else %>
+          <form method="get" action="/logs/<%= log_entry.id %>">
+            <button type="submit" id="inline-button" class="btn btn-primary">View</button>
+          </form><br>
         <% end %>
+
+        <p><b>Date:</b> <%= log_entry.date %></br>
+          <% if log_entry.swell_size != "" %>
+            <b>Swell Size:</b> <%= log_entry.swell_size %><br>
+          <% end %>
         <% if log_entry.swell_direction != "" %>
           <b>Swell Direction:</b> <%= log_entry.swell_direction %><br>
         <% end %>
@@ -59,14 +60,11 @@
         <% if log_entry.wave_count != "" %>
           <b>Wave Count:</b> <%= log_entry.wave_count %>
         <% end %></p>
-
         <% if log_entry.image_url != "" %>
           <img src="<%= log_entry.image_url %>" alt="surfing, waves"><br>
         <% end %>
-
         <p id="content"><%= log_entry.content %></p>
-      </div>
-      <div class="break">
       </div>
     <% end %>
   <% end %>
+</div>
