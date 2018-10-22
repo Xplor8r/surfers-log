@@ -66,7 +66,7 @@ class LogEntriesController < ApplicationController
       redirect to "/logs/#{@log_entry.id}"
     else
       flash[:message] = "Error: Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
-      redirect to '/logs/new_log_entry'
+      redirect to "/logs/#{@log_entry.id}/edit"
     end
   end
 

@@ -64,6 +64,9 @@ h2 {
 	font-size: 2em;
 	padding: 0;
 	margin-top: 20px;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #818e8e;
 }
 
 h3 {
