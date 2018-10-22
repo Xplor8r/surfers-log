@@ -1,23 +1,26 @@
 <h2 class="break">Login</h2>
 
 <form action="/login" method="POST">
-  <div class="form-group">
+  <div class="form-row break">
     <div class="form-group col-md-6">
-      <label for="surfername">Surfer Name</label>
-      <input type="text" class="form-control" id="surfername" name="surfername" placeholder="Enter Surfer Name">
+      <div>
+        <label for="surfername">Surfer Name</label>
+        <input type="text" class="form-control" id="surfername" name="surfername" placeholder="Enter Surfer Name">
+      </div><br>
+      <div>
+        <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div><br>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+      </div>
+      <br><button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="form-group col-md-6">
+      <div>
+        <img src="/images/mikesurf4.jpg">
+      </div>
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-group col-md-6">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-group col-md-6">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

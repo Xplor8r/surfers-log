@@ -18,6 +18,10 @@ img {
   box-shadow: 3px 3px 2px #888888;
 }
 
+.right {
+  align: right;
+  z-index: 4;
+}
 .break {
   padding-bottom: 10px;
   border-bottom-width: 3px;
