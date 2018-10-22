@@ -27,7 +27,7 @@ class SurfersController < ApplicationController
       flash[:message] = "Signup Successfull!"
       redirect to "/log_entries"
     else
-      flash[:message] = "You must enter valid Surfer name, Email, and Password to sign up."
+      flash[:error] = "You must enter valid Surfer name, Email, and Password to sign up."
       redirect to "/create_surfer"
     end
   end
@@ -39,7 +39,7 @@ class SurfersController < ApplicationController
       flash[:message] = "Login Successfull!"
       redirect to "/log_entries"
     else
-      flash[:message] = "Error: Your email or password was incorrect or this surfer does not exist yet."
+      flash[:error] = "Your email or password was incorrect or this surfer does not exist yet."
       redirect to '/login'
     end
   end

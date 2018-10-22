@@ -34,7 +34,7 @@ class LogEntriesController < ApplicationController
     if logged_in? && current_user.log_entries.include?(@log_entry)
       erb :'/logs/edit_log_entry'
     elsif logged_in? && @log_entry == nil
-      flash[:message] = "Error: Sorry, That Log Entry Has Been Deleted."
+      flash[:error] = "Sorry, That Log Entry Has Been Deleted."
       redirect to '/log_entries'
     else
       please_log_in
@@ -48,10 +48,11 @@ class LogEntriesController < ApplicationController
       @log_entry = current_user.log_entries.create(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
       if @log_entry
         @log_entry.save
+        flash[:message] = "Log Entry Succesfully Created."
         redirect to "/logs/#{@log_entry.id}"
       end
     else
-      flash[:message] = "Error: Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
+      flash[:error] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
       redirect to '/new'
     end
     current_user.save
@@ -63,9 +64,10 @@ class LogEntriesController < ApplicationController
       please_log_in
     elsif logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
       @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
+      flash[:message] = "Log Entry Succesfully Edited."
       redirect to "/logs/#{@log_entry.id}"
     else
-      flash[:message] = "Error: Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
+      flash[:error] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
       redirect to "/logs/#{@log_entry.id}/edit"
     end
   end
