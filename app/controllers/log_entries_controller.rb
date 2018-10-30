@@ -59,15 +59,16 @@ class LogEntriesController < ApplicationController
 
   patch '/logs/:id' do
     @log_entry = LogEntry.find_by_id(params[:id])
-    if !logged_in?
+    if logged_in? && current_user.log_entries.include?(@log_entry)
+      if params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
+        @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
+        flash[:message] = "Log Entry Succesfully Edited."
+        redirect to "/logs/#{@log_entry.id}"
+      else
+        flash[:error] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
+        redirect to "/logs/#{@log_entry.id}/edit"
+      end
       please_log_in
-    elsif logged_in? && params['surf_spot'] != "" && params['date'] != "" && params['content'] != ""
-      @log_entry.update(surf_spot: params['surf_spot'], date: params['date'], content: params['content'], swell_direction: params['swell_direction'], conditions: params['conditions'], swell_size: params['swell_size'], wave_count: params['wave_count'], image_url: params['image_url'])
-      flash[:message] = "Log Entry Succesfully Edited."
-      redirect to "/logs/#{@log_entry.id}"
-    else
-      flash[:error] = "Please enter Surf Spot Name, Date of Surf Session, and Log Entry Content."
-      redirect to "/logs/#{@log_entry.id}/edit"
     end
   end
 
