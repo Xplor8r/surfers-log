@@ -27,6 +27,60 @@
           <div class="col-sm-12">
               <img id="header" src="/images/surfers_log.jpg" alt="Scenic coastal picture with wave">
             <h1>Surfer's Log</h1>
+
+            <% if request.path_info != '/create_surfer' && request.path_info != '/' && request.path_info != '/login'%>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                  <ul class="navbar-nav mr-auto">
+                    <% if request.path_info == "/surfers/#{current_user.slug}" %>
+                      <% if current_user.id == @surfer.id %>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log<span class="sr-only">(current)</span></a>
+                        </li>
+                      <% else %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log</a>
+                        </li>
+                      <% end %>
+                    <% else %>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log</a>
+                      </li>
+                    <% end %>
+
+                    <% if request.path_info == '/log_entries' %>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/log_entries">All Log Entries<span class="sr-only">(current)</span></a>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/log_entries">All Log Entries</a>
+                      </li>
+                    <% end %>
+
+                    <% if request.path_info == "/new" %>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="/new">Create Log Entry<span class="sr-only">(current)</span></a>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/new">Create Log Entry</a>
+                      </li>
+                    <% end %>
+
+
+                    <li class="nav-item">
+                      <a class="nav-link" href='/logout'>Logout</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            <% end %>
+
             <%=yield %>
           </div>
         </div>

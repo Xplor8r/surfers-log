@@ -1,64 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/surfers/<%= current_user.slug %>">Your Log</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/log_entries">All Log Entries</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/new">Create Log Entry</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='/logout'>Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<h2 class="break">Edit Log Entry:</h2>
-<form action="/logs/<%= @log_entry.id %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="surf_spot">Surf Spot</label>
-      <input type="text" class="form-control" id="surf_spot" name="surf_spot" value="<%= @log_entry.surf_spot %>">
+<div class="edit-log-entries">
+  <h2 class="break">Edit Log Entry:</h2>
+  <form action="/logs/<%= @log_entry.id %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="surf_spot">Surf Spot</label>
+        <input type="text" class="form-control" id="surf_spot" name="surf_spot" value="<%= @log_entry.surf_spot %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="date">Date of Surf Session</label>
+        <input type="text" class="form-control" id="date" name="date" value="<%= @log_entry.date %>">
+      </div>
     </div>
-    <div class="form-group col-md-6">
-      <label for="date">Date of Surf Session</label>
-      <input type="text" class="form-control" id="date" name="date" value="<%= @log_entry.date %>">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="swell_direction">Swell Direction</label>
+        <input type="text" class="form-control" id="swell_direction" name="swell_direction" placeholder="Swell Direction (optional)" value="<%= @log_entry.swell_direction %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="swell_size">Swell Size</label>
+        <input type="text" class="form-control" id="swell_size" name="swell_size" placeholder="Swell Size (optional)" value="<%= @log_entry.swell_size %>">
+      </div>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="swell_direction">Swell Direction</label>
-      <input type="text" class="form-control" id="swell_direction" name="swell_direction" placeholder="Swell Direction (optional)" value="<%= @log_entry.swell_direction %>">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="conditions">Weather Conditions</label>
+        <input type="text" class="form-control" id="swell_direction" name="conditions" placeholder="Weather Conditions (optional)" value="<%= @log_entry.conditions %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="wave_count">Wave Count</label>
+        <input type="text" class="form-control" id="swell_size" name="wave_count" placeholder="Your Wave Count (optional)" value="<%= @log_entry.wave_count %>">
+      </div>
     </div>
-    <div class="form-group col-md-6">
-      <label for="swell_size">Swell Size</label>
-      <input type="text" class="form-control" id="swell_size" name="swell_size" placeholder="Swell Size (optional)" value="<%= @log_entry.swell_size %>">
+    <div class="form-group">
+      <label for="image_url">Upload Image</label>
+      <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Image url (optional)" value="<%= @log_entry.image_url %>">
     </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="conditions">Weather Conditions</label>
-      <input type="text" class="form-control" id="swell_direction" name="conditions" placeholder="Weather Conditions (optional)" value="<%= @log_entry.conditions %>">
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="3" maxlength="1000"><%= @log_entry.content %></textarea>
     </div>
-    <div class="form-group col-md-6">
-      <label for="wave_count">Wave Count</label>
-      <input type="text" class="form-control" id="swell_size" name="wave_count" placeholder="Your Wave Count (optional)" value="<%= @log_entry.wave_count %>">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="image_url">Upload Image</label>
-    <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Image url (optional)" value="<%= @log_entry.image_url %>">
-  </div>
-  <div class="form-group">
-    <label for="content">Content</label>
-    <textarea class="form-control" id="content" name="content" rows="3" maxlength="1000"><%= @log_entry.content %></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
