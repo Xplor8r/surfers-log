@@ -26,5 +26,5 @@ end
  # gem "puma"
 #end
 
-gem 'pg', :group => :production
-#gem 'sqlite3', :group => :development
+gem 'sqlite3', :group => 'development'
+gem 'pg', :group => 'production'
