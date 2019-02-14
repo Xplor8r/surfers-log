@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.5.3'
+
 gem 'sinatra', '~> 2.0.2'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -17,4 +19,8 @@ gem 'rack-flash3'
 group :test do
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
+
+group :production do
+  gem "puma"
 end
