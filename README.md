@@ -1,6 +1,9 @@
 # Surfers Log
 
-Surf, log, share, using a new app called Surfer's Log. Recording your surf sessions allows you to relive those epic days and to dial in a specific spot with specific conditions. Sign up today and start logging!
++ Built MVC framework using Sinatra gem
++ Authenticated user via the Bcrypt gem
++ Designed front-end styles and responsive layouts with Bootstrap
+
 
 Surfers Log was built using the Sinatra and styled using Bootstrap.
 
